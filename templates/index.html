@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="shortcut icon" href="../static/assets/progno_logo.png" type="image/x-icon">
+    <title>Prognosis AI</title>
+</head>
+<body>
+    <div id="img" class="img-container">
+        <img src="../static/assets/progno_logo.png" alt="">
+    </div>
+    <div class="main-container no-display">
+        <div class="head-text">PROGNOSIS AI : Check your health</div>
+        <div class="body-container">
+            <div class="text-container">
+                <h2>Welcome to PROGNOSIS AI</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia consequuntur at expedita ipsa iustiosam asperiores quod nulla dolorum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, odio laborum quod perspiciatis molestias aliquam accusantium est eum ipsum? Aliquam nulla explicabo accusamus modi culpa laboriosam libero quidem, provident dolor</p>
+                <button type="button" class="start-btn btn" id="start-btn">Continue</button>
+            </div>
+            <div class="form-background no-display">
+                <form action="/result" method="post" autocomplete="off">
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="{{url_for('static', filename='scripts/script.js')}}"></script>
+</html>
