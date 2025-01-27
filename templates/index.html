@@ -8,20 +8,196 @@
     <title>Prognosis AI</title>
 </head>
 <body>
-    <div id="img" class="img-container">
+    <div id="img" class="img-container no-display">
         <img src="../static/assets/progno_logo.png" alt="">
     </div>
-    <div class="main-container no-display">
+    <div class="main-container">
         <div class="head-text">PROGNOSIS AI : Check your health</div>
         <div class="body-container">
-            <div class="text-container">
+            <div class="text-container no-display">
                 <h2>Welcome to PROGNOSIS AI</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia consequuntur at expedita ipsa iustiosam asperiores quod nulla dolorum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, odio laborum quod perspiciatis molestias aliquam accusantium est eum ipsum? Aliquam nulla explicabo accusamus modi culpa laboriosam libero quidem, provident dolor</p>
                 <button type="button" class="start-btn btn" id="start-btn">Continue</button>
             </div>
-            <div class="form-background no-display">
-                <form action="/result" method="post" autocomplete="off">
-
+            <div class="form-background">
+                <form action="/result" method="post" id="details-form" autocomplete="off">
+                    <div class="form-container" id="form-container1">
+                        <div class="head">
+                            <h1>Medical Information Form</h1>
+                            <h2>Enter Details</h2>
+                        </div>
+                        <div class="form-box">
+                            <div class="input-container"><input class="input input1" type="number" placeholder="Age" name="age" id="age" required></div>
+                            <div class="input-container"><input class="input input1" type="text" placeholder="Gender" name="gender" id="gender" required></div>
+                            <div class="input-container"><input class="input input1" type="number" placeholder="Height (In cm)" name="height" id="height" required></div>
+                            <div class="input-container"><input class="input input1" type="number" placeholder="Weight (In kg)" name="weight" id="weight" required></div>
+                            <div class="slider-container"><label for="physical-activity" class="slider-label">Physical Activity</label><input type="range" name="physical-activity" id="physical-activity" min="0" max="10" value="0" onchange="updateValue(this.value, 'physical')"><p id="physical-value">0</p></div>
+                            <div class="slider-container"><label for="diet-quality" class="slider-label">Sleep Quality</label><input type="range" name="sleep-quality" id="sleep-quality" min="0" max="10" value="0"onchange="updateValue(this.value, 'sleep')"><p id="sleep-value">0</p></div>
+                            <div class="slider-container"><label for="sleep-quality" class="slider-label">Diet Quality</label><input type="range" name="diet-quality" id="diet-quality" min="0" max="10" value="0"onchange="updateValue(this.value, 'diet')"><p id="diet-value">0</p></div>
+                            <div class="submit-btn-container">
+                                <input type="button" id="submit1" class="submit" value="Next">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-container display" id="form-container2">
+                        <div class="head">
+                            <h1>Medical Information Form</h1>
+                            <h2>Enter Cardiac Details</h2>
+                        </div>
+                        <div class="form-box">
+                            <div class="input-container"><input class="input input2" type="number" placeholder="Cholestrol (In mg/dl)" name="cholestrol" id="cholestrol" required></div>
+                            <div class="input-container"><input class="input input2" type="number" placeholder="Haemoglobin (In g/dl)" name="haemo" id="haemo" required></div>
+                            <div class="input-container"><input class="input input2" type="number" placeholder="Systolic BP (In mm/Hg)" name="bp" id="bp" required></div>
+                            <div class="input-container"><input class="input input2" type="number" placeholder="Heart Rate (In bpm)" name="heart" id="heart" required></div>
+                            <div class="radio-container">
+                                <label for="ecg" class="radio-label">Abnormal ECG? (Yes/No)</label>
+                                <label class="switch">
+                                    <input class="switch-input input2" type="checkbox" name="ecg" id="ecg"/>
+                                    <span class="switch-slider slider-round"></span>
+                                </label>
+                            </div>
+                            <div class="radio-container">
+                                <label for="ccp" class="radio-label">Chest Pain? (Yes/No)</label>
+                                <label class="switch">
+                                    <input class="switch-input input2" type="checkbox" name="ccp" id="ccp" />
+                                    <span class="switch-slider slider-round"></span>
+                                </label>
+                            </div>
+                            <div class="radio-container">
+                                <label for="anxiety" class="radio-label">Anxiety? (Yes/No)</label>
+                                <label class="switch">
+                                    <input class="switch-input input2" type="checkbox" name="anxiety" id="anxiety" />
+                                    <span class="switch-slider slider-round"></span>
+                                </label>
+                            </div>
+                            <div class="submit-btn-container">
+                                <input type="button" id="submit2" class="submit" value="Next">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-container display" id="form-container3">
+                        <div class="head">
+                            <h1>Medical Information Form</h1>
+                            <h2>Enter Details</h2>
+                        </div>
+                        <div class="form-box">
+                            <div class="input-container"><input class="input input3" type="number" placeholder="Blood Sugar (In mg/dl)" name="sugar" id="sugar" required></div>
+                            <div class="input-container"><input class="input input3" type="number" placeholder="Insulin (In µU/mL)" name="insulin" id="insulin" required></div>
+                            <div class="radio-container">
+                                <label for="smoke" class="radio-label">Do you smoke? (Yes/No)</label>
+                                <label class="switch">
+                                    <input class="switch-input input3" type="checkbox" name="smoke" id="smoke"/>
+                                    <span class="switch-slider slider-round"></span>
+                                </label>
+                            </div>
+                            <div class="radio-container">
+                                <label for="thick-feet" class="radio-label">Do you have skin thickening in feet?</label>
+                                <label class="switch">
+                                    <input class="switch-input input3" type="checkbox" name="thick-feet" id="thick-feet" />
+                                    <span class="switch-slider slider-round"></span>
+                                </label>
+                            </div>
+                            <div class="radio-container">
+                                <label for="fam-dia" class="radio-label">Family history of diabetes? (Yes/No)</label>
+                                <label class="switch">
+                                    <input class="switch-input input3" type="checkbox" name="fam-dia" id="fam-dia" />
+                                    <span class="switch-slider slider-round"></span>
+                                </label>
+                            </div>
+                            <div class="radio-container">
+                                <label for="alcohol" class="radio-label">Do you drink alcohol? (Yes/No)</label>
+                                <label class="switch">
+                                    <input class="switch-input input3" type="checkbox" name="alcohol" id="alcohol" />
+                                    <span class="switch-slider slider-round"></span>
+                                </label>
+                            </div>
+                            <div class="submit-btn-container">
+                                <input type="button" id="submit3" class="submit" value="Next">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-container display" id="form-container4">
+                        <div class="head">
+                            <h1>Medical Information Form</h1>
+                            <h2>Enter Details</h2>
+                        </div>
+                        <div class="form-box">
+                            <div class="input-container"><input class="input input4" type="number" placeholder="Age of First Period" name="firstPeriod" id="firstPeriod" required></div>
+                            <div class="input-container"><input class="input input4" type="number" placeholder="No. of Pregnancies" name="pregnancies" id="pregnancies" required></div>
+                            <div class="input-container"><input class="input input4" type="number" placeholder="Age of Pregnancy (0 if N/A)" name="firstBaby" id="firstBaby" required></div>
+                            <div class="radio-container">
+                                <label for="menopause" class="radio-label">Have you reached Menopause?</label>
+                                <label class="switch">
+                                    <input class="switch-input input4" type="checkbox" name="menopause" id="menopause"/>
+                                    <span class="switch-slider slider-round"></span>
+                                </label>
+                            </div>
+                            <div class="radio-container">
+                                <label for="fam-bc" class="radio-label">Family history of breast cancer?</label>
+                                <label class="switch">
+                                    <input class="switch-input input4" type="checkbox" name="fam-bc" id="fam-bc" />
+                                    <span class="switch-slider slider-round"></span>
+                                </label>
+                            </div>
+                            <div class="submit-btn-container">
+                                <input type="button" id="submit4" class="submit" value="Next">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-container display" id="form-container5">
+                        <div class="head">
+                            <h1>Medical Information Form</h1>
+                            <h2>Enter Details</h2>
+                        </div>
+                        <div class="form-box">
+                            <div class="radio-container">
+                                <label for="chronicCough" class="radio-label">Chronic Cough?</label>
+                                <label class="switch">
+                                    <input class="switch-input input5" type="checkbox" name="chronicCough" id="chronicCough"/>
+                                    <span class="switch-slider slider-round"></span>
+                                </label>
+                            </div>
+                            <div class="radio-container">
+                                <label for="allergies" class="radio-label">Allergies? (Pollen/Dust)</label>
+                                <label class="switch">
+                                    <input class="switch-input input5" type="checkbox" name="allergies" id="allergies" />
+                                    <span class="switch-slider slider-round"></span>
+                                </label>
+                            </div>
+                            <div class="radio-container">
+                                <label for="yellowFingers" class="radio-label">Yellow Fingers?</label>
+                                <label class="switch">
+                                    <input class="switch-input input5" type="checkbox" name="yellowFingers" id="yellowFingers" />
+                                    <span class="switch-slider slider-round"></span>
+                                </label>
+                            </div>
+                            <div class="radio-container">
+                                <label for="shortBreath" class="radio-label">Shortness of Breath? (Yes/No)</label>
+                                <label class="switch">
+                                    <input class="switch-input input5" type="checkbox" name="shortBreath" id="shortBreath" />
+                                    <span class="switch-slider slider-round"></span>
+                                </label>
+                            </div>
+                            <div class="radio-container">
+                                <label for="swallowing" class="radio-label">Difficulty in swallowing? (Yes/No)</label>
+                                <label class="switch">
+                                    <input class="switch-input input5" type="checkbox" name="swallowing" id="swallowing" />
+                                    <span class="switch-slider slider-round"></span>
+                                </label>
+                            </div>
+                            <div class="radio-container">
+                                <label for="fam-asthma" class="radio-label">Family history of Asthma? (Yes/No)</label>
+                                <label class="switch">
+                                    <input class="switch-input input5" type="checkbox" name="fam-asthma" id="fam-asthma" />
+                                    <span class="switch-slider slider-round"></span>
+                                </label>
+                            </div>
+                            <div class="slider-container"><label for="pollution" class="slider-label">Pollution Exposure</label><input type="range" id="pollution" min="0" max="10" value="0"onchange="updateValue(this.value, 'pollution')"><p id="pollution-value">0</p></div>
+                            <div class="submit-btn-container">
+                                <input type="submit" id="submit5" class="submit" formaction="/result" formmethod="post" value="Finish">
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -29,4 +205,11 @@
 </div>
 </body>
 <script src="{{url_for('static', filename='scripts/script.js')}}"></script>
+<script src="{{url_for('static', filename='scripts/form.js')}}"></script>
+<script>
+    function updateValue(val, id){
+        let valueTag = document.getElementById(`${id}-value`);
+        valueTag.innerHTML = val;
+    }
+</script>
 </html>
