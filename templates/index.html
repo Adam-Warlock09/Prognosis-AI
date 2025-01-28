@@ -8,18 +8,18 @@
     <title>Prognosis AI</title>
 </head>
 <body>
-    <div id="img" class="img-container no-display">
+    <div id="img" class="img-container">
         <img src="../static/assets/progno_logo.png" alt="">
     </div>
-    <div class="main-container">
+    <div class="main-container no-display">
         <div class="head-text">PROGNOSIS AI : Check your health</div>
         <div class="body-container">
-            <div class="text-container no-display">
+            <div class="text-container">
                 <h2>Welcome to PROGNOSIS AI</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia consequuntur at expedita ipsa iustiosam asperiores quod nulla dolorum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, odio laborum quod perspiciatis molestias aliquam accusantium est eum ipsum? Aliquam nulla explicabo accusamus modi culpa laboriosam libero quidem, provident dolor</p>
                 <button type="button" class="start-btn btn" id="start-btn">Continue</button>
             </div>
-            <div class="form-background">
+            <div class="form-background no-display">
                 <form action="/result" method="post" id="details-form" autocomplete="off">
                     <div class="form-container" id="form-container1">
                         <div class="head">
@@ -207,6 +207,11 @@
 <script src="{{url_for('static', filename='scripts/script.js')}}"></script>
 <script src="{{url_for('static', filename='scripts/form.js')}}"></script>
 <script>
+
+    window.onload = function(){
+        alert("Click on the logo to continue further")
+    }
+
     function updateValue(val, id){
         let valueTag = document.getElementById(`${id}-value`);
         valueTag.innerHTML = val;

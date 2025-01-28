@@ -37,6 +37,11 @@ startBtn.addEventListener("click", ()=> {
 
         formBackground.style.animation = "fade-in 2s";
 
+        const alertTimeout = setTimeout(() => {
+            alert("This is an unvalidated form. None Of your inputs are being checked. All numerical inputs are required. Form Validation feature will soon be added.")
+            clearTimeout(alertTimeout)
+        }, 1800);
+
         clearTimeout(startTimeout)
 
     }, 1000)
