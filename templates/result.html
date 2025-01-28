@@ -3,9 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/result.css">
+    <link rel="shortcut icon" href="../static/assets/progno_logo.png" type="image/x-icon">
+    <title>Prognosis AI</title>
 </head>
 <body>
-    <p>{{ s }}</p>
+    <div class="main-container">
+        <div class="head-text">PROGNOSIS AI : Check your Results</div>
+        <div class="body-container">
+            <div class="form-background">
+                {% for key, value in data.items() %}
+                    <div class="table-cell">
+                        <div class="left-cell">{{ key }}</div>
+                        <div class="right-cell">{{ value }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </body>
+<script>
+    let cells = document.getElementsByClassName("right-cell")
+    let l = cells.length
+    
+    for(i = 0; i<l; i++){
+        
+        let text = cells[i].textContent.trim().toLowerCase()
+        if(!isNaN(text)){
+            continue
+        }
+
+        if(text === "low risk"){
+            cells[i].style.color = "#76c893"
+        }else if(text === "medium risk"){
+            cells[i].style.color = "#f6b73c"
+        }else{
+            cells[i].style.color = "#d00000"
+        }
+
+    }
+
+</script>
 </html>

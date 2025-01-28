@@ -29,8 +29,8 @@
                         <div class="form-box">
                             <div class="input-container"><input class="input input1" type="number" placeholder="Age" name="age" id="age" required></div>
                             <div class="input-container"><input class="input input1" type="text" placeholder="Gender" name="gender" id="gender" required></div>
-                            <div class="input-container"><input class="input input1" type="number" placeholder="Height (In cm)" name="height" id="height" required></div>
-                            <div class="input-container"><input class="input input1" type="number" placeholder="Weight (In kg)" name="weight" id="weight" required></div>
+                            <div class="input-container"><input class="input input1" step="any" type="number" placeholder="Height (In cm)" name="height" id="height" required></div>
+                            <div class="input-container"><input class="input input1" step="any" type="number" placeholder="Weight (In kg)" name="weight" id="weight" required></div>
                             <div class="slider-container"><label for="physical-activity" class="slider-label">Physical Activity</label><input type="range" name="physical-activity" id="physical-activity" min="0" max="10" value="0" onchange="updateValue(this.value, 'physical')"><p id="physical-value">0</p></div>
                             <div class="slider-container"><label for="diet-quality" class="slider-label">Sleep Quality</label><input type="range" name="sleep-quality" id="sleep-quality" min="0" max="10" value="0"onchange="updateValue(this.value, 'sleep')"><p id="sleep-value">0</p></div>
                             <div class="slider-container"><label for="sleep-quality" class="slider-label">Diet Quality</label><input type="range" name="diet-quality" id="diet-quality" min="0" max="10" value="0"onchange="updateValue(this.value, 'diet')"><p id="diet-value">0</p></div>
@@ -45,8 +45,8 @@
                             <h2>Enter Cardiac Details</h2>
                         </div>
                         <div class="form-box">
-                            <div class="input-container"><input class="input input2" type="number" placeholder="Cholestrol (In mg/dl)" name="cholestrol" id="cholestrol" required></div>
-                            <div class="input-container"><input class="input input2" type="number" placeholder="Haemoglobin (In g/dl)" name="haemo" id="haemo" required></div>
+                            <div class="input-container"><input class="input input2" step="any" type="number" placeholder="Cholestrol (In mg/dl)" name="cholestrol" id="cholestrol" required></div>
+                            <div class="input-container"><input class="input input2" step="any" type="number" placeholder="Haemoglobin (In g/dl)" name="haemo" id="haemo" required></div>
                             <div class="input-container"><input class="input input2" type="number" placeholder="Systolic BP (In mm/Hg)" name="bp" id="bp" required></div>
                             <div class="input-container"><input class="input input2" type="number" placeholder="Heart Rate (In bpm)" name="heart" id="heart" required></div>
                             <div class="radio-container">
@@ -81,8 +81,8 @@
                             <h2>Enter Details</h2>
                         </div>
                         <div class="form-box">
-                            <div class="input-container"><input class="input input3" type="number" placeholder="Blood Sugar (In mg/dl)" name="sugar" id="sugar" required></div>
-                            <div class="input-container"><input class="input input3" type="number" placeholder="Insulin (In µU/mL)" name="insulin" id="insulin" required></div>
+                            <div class="input-container"><input class="input input3" step="any" type="number" placeholder="Blood Sugar (In mg/dl)" name="sugar" id="sugar" required></div>
+                            <div class="input-container"><input class="input input3" step="any" type="number" placeholder="Insulin (In µU/mL)" name="insulin" id="insulin" required></div>
                             <div class="radio-container">
                                 <label for="smoke" class="radio-label">Do you smoke? (Yes/No)</label>
                                 <label class="switch">
@@ -122,9 +122,9 @@
                             <h2>Enter Details</h2>
                         </div>
                         <div class="form-box">
-                            <div class="input-container"><input class="input input4" type="number" placeholder="Age of First Period" name="firstPeriod" id="firstPeriod" required></div>
-                            <div class="input-container"><input class="input input4" type="number" placeholder="No. of Pregnancies" name="pregnancies" id="pregnancies" required></div>
-                            <div class="input-container"><input class="input input4" type="number" placeholder="Age of Pregnancy (0 if N/A)" name="firstBaby" id="firstBaby" required></div>
+                            <div class="input-container"><input class="input input4" type="number" placeholder="Age of First Period" name="firstPeriod" id="firstPeriod"></div>
+                            <div class="input-container"><input class="input input4" type="number" placeholder="No. of Pregnancies" name="pregnancies" id="pregnancies"></div>
+                            <div class="input-container"><input class="input input4" type="number" placeholder="Age of Pregnancy (0 if N/A)" name="firstBaby" id="firstBaby"></div>
                             <div class="radio-container">
                                 <label for="menopause" class="radio-label">Have you reached Menopause?</label>
                                 <label class="switch">
@@ -211,5 +211,14 @@
         let valueTag = document.getElementById(`${id}-value`);
         valueTag.innerHTML = val;
     }
+
+    let val = document.getElementById("details-form");
+    val.onkeypress = function (key) {
+        let btn = 0 || key.keyCode || key.charCode;
+        if (btn == 13) {
+            alert("Enter Key is Pressed! Use buttons to navigate / submit.");
+            key.preventDefault();
+        }
+    } 
 </script>
 </html>
