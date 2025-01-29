@@ -16,7 +16,7 @@
         <div class="body-container">
             <div class="text-container">
                 <h2>Welcome to PROGNOSIS AI</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia consequuntur at expedita ipsa iustiosam asperiores quod nulla dolorum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, odio laborum quod perspiciatis molestias aliquam accusantium est eum ipsum? Aliquam nulla explicabo accusamus modi culpa laboriosam libero quidem, provident dolor</p>
+                <p>PROGNOSIS AI is an advanced machine learning-powered application designed to assess an individual's risk level for susceptibility to various diseases. By analyzing basic medical information provided by the user, the system predicts the likelihood of many conditions.With an average model accuracy of 90.78%, PROGNOSIS AI strives to offer reliable insights to assist in early detection and prevention.</p>
                 <button type="button" class="start-btn btn" id="start-btn">Continue</button>
             </div>
             <div class="form-background no-display">
@@ -27,9 +27,9 @@
                             <h2>Enter Details</h2>
                         </div>
                         <div class="form-box">
-                            <div class="input-container"><input class="input input1" type="number" placeholder="Age" name="age" id="age" required></div>
+                            <div class="input-container"><input class="input input1" type="number" placeholder="Age" name="age" id="age" min="1" max="130" required></div>
                             <div class="input-container"><input class="input input1" type="text" placeholder="Gender" name="gender" id="gender" required></div>
-                            <div class="input-container"><input class="input input1" step="any" type="number" placeholder="Height (In cm)" name="height" id="height" required></div>
+                            <div class="input-container"><input class="input input1" step="any" type="number" placeholder="Height (In cm)" min="30" name="height" id="height" required></div>
                             <div class="input-container"><input class="input input1" step="any" type="number" placeholder="Weight (In kg)" name="weight" id="weight" required></div>
                             <div class="slider-container"><label for="physical-activity" class="slider-label">Physical Activity</label><input type="range" name="physical-activity" id="physical-activity" min="0" max="10" value="0" onchange="updateValue(this.value, 'physical')"><p id="physical-value">0</p></div>
                             <div class="slider-container"><label for="diet-quality" class="slider-label">Sleep Quality</label><input type="range" name="sleep-quality" id="sleep-quality" min="0" max="10" value="0"onchange="updateValue(this.value, 'sleep')"><p id="sleep-value">0</p></div>
