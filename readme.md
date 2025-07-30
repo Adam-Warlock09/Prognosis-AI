@@ -1,7 +1,7 @@
 # PROGNOSIS AI
 
 Check out our prototype: https://prognosis-ai.onrender.com
-check out our github repo of the website: https://github.com/Adam-Warlock09/Prognosis-AI
+Check out our github repo of the website: https://github.com/Adam-Warlock09/Prognosis-AI
 
 ## Overview
 PROGNOSIS AI is an advanced machine learning-powered application designed to assess an individual's risk level for susceptibility to various diseases. By analyzing basic medical information provided by the user, the system predicts the likelihood of conditions such as:
@@ -32,6 +32,11 @@ We leverage a variety of machine learning techniques to ensure robust and accura
 1. **User Input**: The user provides essential medical details.
 2. **Processing**: The data is processed through our trained machine learning models.
 3. **Prediction**: Risk levels for various diseases are calculated and displayed.
+
+## Contributors:
+Aric Maji
+Akshat Banzal
+Atul Boyal
 
 ## Accuracy
 Our models have been rigorously evaluated and optimized, resulting in an **average accuracy of 90.78%** across all supported conditions. This ensures reliable and actionable insights for users.
